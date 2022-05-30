@@ -1,0 +1,57 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32210.238
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dominio", "Dominio", "{CA45FFD0-C703-4700-BF32-35A200FC2B34}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutomatizadorDeTestes.Dominio", "AutomatizadorDeTestes.Dominio\AutomatizadorDeTestes.Dominio.csproj", "{5743B3E2-063C-4A57-B9EC-21277F9F7F6F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infra", "Infra", "{82580AB5-4FBC-4D92-9795-06B30C69AE4E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutomatizadorDeTestes.Infra", "AutomatizadorDeTestes.Infra\AutomatizadorDeTestes.Infra.csproj", "{0B2D7132-E777-4F15-A3FC-CB4B8DA08467}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "AutomatizadorDeTestes.Projeto.BancoDados", "AutomatizadorDeTestes.Projeto.BancoDados\AutomatizadorDeTestes.Projeto.BancoDados.sqlproj", "{AEBF77DB-28FB-445B-868F-E42A1BB953C9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WinApp", "WinApp", "{CFB76032-A490-4CB3-A9F6-994456D989C0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutomatizadorDeTestes.WinApp", "AutomatizadorDeTestes.WinApp\AutomatizadorDeTestes.WinApp.csproj", "{35BC3717-2D86-4FE6-9582-3B6166DE3D55}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5743B3E2-063C-4A57-B9EC-21277F9F7F6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5743B3E2-063C-4A57-B9EC-21277F9F7F6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5743B3E2-063C-4A57-B9EC-21277F9F7F6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5743B3E2-063C-4A57-B9EC-21277F9F7F6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B2D7132-E777-4F15-A3FC-CB4B8DA08467}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B2D7132-E777-4F15-A3FC-CB4B8DA08467}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B2D7132-E777-4F15-A3FC-CB4B8DA08467}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B2D7132-E777-4F15-A3FC-CB4B8DA08467}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AEBF77DB-28FB-445B-868F-E42A1BB953C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AEBF77DB-28FB-445B-868F-E42A1BB953C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AEBF77DB-28FB-445B-868F-E42A1BB953C9}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{AEBF77DB-28FB-445B-868F-E42A1BB953C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AEBF77DB-28FB-445B-868F-E42A1BB953C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AEBF77DB-28FB-445B-868F-E42A1BB953C9}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{35BC3717-2D86-4FE6-9582-3B6166DE3D55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35BC3717-2D86-4FE6-9582-3B6166DE3D55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35BC3717-2D86-4FE6-9582-3B6166DE3D55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35BC3717-2D86-4FE6-9582-3B6166DE3D55}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5743B3E2-063C-4A57-B9EC-21277F9F7F6F} = {CA45FFD0-C703-4700-BF32-35A200FC2B34}
+		{0B2D7132-E777-4F15-A3FC-CB4B8DA08467} = {82580AB5-4FBC-4D92-9795-06B30C69AE4E}
+		{AEBF77DB-28FB-445B-868F-E42A1BB953C9} = {82580AB5-4FBC-4D92-9795-06B30C69AE4E}
+		{35BC3717-2D86-4FE6-9582-3B6166DE3D55} = {CFB76032-A490-4CB3-A9F6-994456D989C0}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {47A0A6C7-5EDA-4B09-BD86-1E0DC7319868}
+	EndGlobalSection
+EndGlobal
