@@ -65,7 +65,7 @@
             // 
             // cadastrosToolStripMenuItem
             // 
-            this.cadastrosToolStripMenuItem.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.cadastrosToolStripMenuItem.BackColor = System.Drawing.SystemColors.ControlLight;
             this.cadastrosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.testesMenuItem,
             this.questoesMenuItem,

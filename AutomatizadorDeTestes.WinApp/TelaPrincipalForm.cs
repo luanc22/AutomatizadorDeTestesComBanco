@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using AutomatizadorDeTestes.Infra.Compartilhado;
-using AutomatizadorDeTestes.Infra.Repositorios;
 using AutomatizadorDeTestes.WinApp.Compartilhado;
 using AutomatizadorDeTestes.WinApp.ModuloDisciplina;
 using AutomatizadorDeTestes.WinApp.ModuloMateria;

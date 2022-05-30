@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using AutomatizadorDeTestes.Dominio.ModuloQuestao;
 using AutomatizadorDeTestes.Dominio.ModuloTeste;
+using AutomatizadorDeTestes.Dominio.ModuloMateria;
 
 namespace AutomatizadorDeTestes.Infra.BancoDeDados
 {
@@ -14,6 +15,7 @@ namespace AutomatizadorDeTestes.Infra.BancoDeDados
     {
         RepositorioDisciplinaEmBancoDeDados repositorioDisciplina = new RepositorioDisciplinaEmBancoDeDados();
         RepositorioMateriaEmBancoDeDados repositorioMateria = new RepositorioMateriaEmBancoDeDados();
+        RepositorioQuestaoEmBancoDeDados repositorioQuestao = new RepositorioQuestaoEmBancoDeDados();
 
 
         private const string enderecoBanco =
@@ -49,9 +51,12 @@ namespace AutomatizadorDeTestes.Infra.BancoDeDados
 			        [NUMERO] = @NUMERO";
 
         private const string sqlExcluir =
-            @"DELETE FROM [TBTESTE]
+            @"DELETE FROM [TBQUESTAO_TBTESTE]
 		        WHERE
-			        [NUMERO] = @NUMERO";
+			        [TESTE_NUMERO] = @NUMERO;
+              DELETE FROM [TBTESTE]
+                WHERE
+                    [NUMERO] = @NUMERO";
 
         private const string sqlSelecionarPorNumero =
             @"SELECT
@@ -94,7 +99,10 @@ namespace AutomatizadorDeTestes.Infra.BancoDeDados
         private const string sqlSelecionarQuestoesDoTeste =
            @"SELECT 
 	                Q.NUMERO, 
-	                Q.ENUNCIADO
+	                Q.ENUNCIADO,
+                    Q.RESPOSTA,
+                    Q.MATERIA_NUMERO,
+                    Q.DISCIPLINA_NUMERO
                 FROM 
 	                TBQUESTAO AS Q INNER JOIN TBQUESTAO_TBTESTE AS QT 
                 ON 
@@ -143,27 +151,6 @@ namespace AutomatizadorDeTestes.Infra.BancoDeDados
             return resultadoValidacao;
         }
 
-        public ValidationResult Editar(Teste teste, List<Questao> questoesSelecionadas, List<Questao> questoesNaoSelecionadas)
-        {
-            var resultadoValidacao = Editar(teste);
-
-            if (resultadoValidacao.IsValid == false)
-                return resultadoValidacao;
-
-            foreach (var questao in questoesNaoSelecionadas)
-            {
-                if (teste.Questoes.Contains(questao))
-                    RemoverQuestao(questao);
-            }
-
-            foreach (var questao in questoesSelecionadas)
-            {
-                AdicionarQuestao(teste, questao);
-            }
-
-            return resultadoValidacao;
-        }
-
         public ValidationResult Excluir(Teste teste)
         {
             SqlConnection conexaoComBanco = new SqlConnection(enderecoBanco);
@@ -185,11 +172,11 @@ namespace AutomatizadorDeTestes.Infra.BancoDeDados
             return resultadoValidacao;
         }
 
-        public ValidationResult Inserir(Teste novoTeste)
+        public ValidationResult Inserir(Teste teste)
         {
             var validador = new ValidadorTeste();
 
-            var resultadoValidacao = validador.Validate(novoTeste);
+            var resultadoValidacao = validador.Validate(teste);
 
             if (resultadoValidacao.IsValid == false)
                 return resultadoValidacao;
@@ -198,11 +185,16 @@ namespace AutomatizadorDeTestes.Infra.BancoDeDados
 
             SqlCommand comandoInsercao = new SqlCommand(sqlInserir, conexaoComBanco);
 
-            ConfigurarParametrosTeste(novoTeste, comandoInsercao);
+            ConfigurarParametrosTeste(teste, comandoInsercao);
 
             conexaoComBanco.Open();
+
             var id = comandoInsercao.ExecuteScalar();
-            novoTeste.Numero = Convert.ToInt32(id);
+
+            teste.Numero = Convert.ToInt32(id);
+
+            foreach (var questao in teste.Questoes)
+                AdicionarQuestao(teste, questao);
 
             conexaoComBanco.Close();
 
@@ -270,6 +262,8 @@ namespace AutomatizadorDeTestes.Infra.BancoDeDados
             while (leitorQuestoesTeste.Read())
             {
                 Questao questao = ConverterParaQuestao(leitorQuestoesTeste);
+
+                repositorioQuestao.CarregarAlternativas(questao);
 
                 teste.AdicionarQuestao(questao);
             }

@@ -5,7 +5,7 @@ namespace AutomatizadorDeTestes.Dominio.Compartilhado
 {
     public interface IRepositorioBase<T> where T : EntidadeBase<T>
     {
-        ValidationResult Inserir(T novoRegistro);
+       ValidationResult Inserir(T novoRegistro);
 
         ValidationResult Editar(T registro);
 

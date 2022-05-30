@@ -49,9 +49,15 @@ namespace AutomatizadorDeTestes.Infra.BancoDeDados
 			        [NUMERO] = @NUMERO";
 
         private const string sqlExcluir =
-            @"DELETE FROM [TBQUESTAO]
+            @"DELETE FROM [TBALTERNATIVA]
+                WHERE
+                    [QUESTAO_NUMERO] = @NUMERO;
+              DELETE FROM [TBQUESTAO_TBTESTE]
 		        WHERE
-			        [NUMERO] = @NUMERO";
+			        [QUESTAO_NUMERO] = @NUMERO;
+              DELETE FROM [TBQUESTAO]
+                WHERE
+                    [NUMERO] = @NUMERO";
 
         private const string sqlSelecionarTodos =
         @"SELECT 
@@ -345,7 +351,7 @@ namespace AutomatizadorDeTestes.Infra.BancoDeDados
             comando.Parameters.AddWithValue("QUESTAO_NUMERO", alternativa.Questao.Numero);
         }
 
-        private void CarregarAlternativas(Questao questao)
+        public void CarregarAlternativas(Questao questao)
         {
             SqlConnection conexaoComBanco = new SqlConnection(enderecoBanco);
 

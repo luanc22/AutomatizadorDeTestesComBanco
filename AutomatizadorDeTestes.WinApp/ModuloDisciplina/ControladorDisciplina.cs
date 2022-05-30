@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using AutomatizadorDeTestes.Dominio.ModuloDisciplina;
 using AutomatizadorDeTestes.Dominio.ModuloMateria;
-using AutomatizadorDeTestes.Infra.Repositorios;
 using AutomatizadorDeTestes.WinApp.Compartilhado;
 
 namespace AutomatizadorDeTestes.WinApp.ModuloDisciplina

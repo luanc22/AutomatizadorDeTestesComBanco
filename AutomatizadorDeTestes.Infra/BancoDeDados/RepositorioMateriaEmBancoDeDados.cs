@@ -48,9 +48,12 @@ namespace AutomatizadorDeTestes.Infra.BancoDeDados
 	            MT.DISCIPLINA_NUMERO = D.NUMERO";
 
         private const string sqlExcluir =
-            @"DELETE FROM [TBMateria]
+            @"DELETE FROM [TBQUESTAO]
 		        WHERE
-			        [NUMERO] = @NUMERO";
+			        [MATERIA_NUMERO] = @NUMERO;
+              DELETE FROM [TBMATERIA]
+                WHERE
+                    [NUMERO] = @NUMERO";
 
         private const string sqlSelecionarPorNumero =
             @"SELECT 

@@ -27,7 +27,6 @@ namespace AutomatizadorDeTestes.WinApp.ModuloTeste
                 new DataGridViewTextBoxColumn { DataPropertyName = "Titulo", HeaderText = "Título"},
                 new DataGridViewTextBoxColumn { DataPropertyName = "Disciplina", HeaderText = "Disciplina"},
                 new DataGridViewTextBoxColumn { DataPropertyName = "Materia", HeaderText = "Materia"},
-                new DataGridViewTextBoxColumn { DataPropertyName = "Questoes.Count", HeaderText = "Qtd. Questões"},
                 new DataGridViewTextBoxColumn { DataPropertyName = "DataCriacao", HeaderText = "Data de Criação"}
 
             };
@@ -41,7 +40,7 @@ namespace AutomatizadorDeTestes.WinApp.ModuloTeste
             grid.Rows.Clear();
             foreach (Teste t in testes)
             {
-                grid.Rows.Add(t.Numero, t.Titulo, t.Disciplina, t.Materia, t.Questoes.Count, t.dataCriacao);
+                grid.Rows.Add(t.Numero, t.Titulo, t.Disciplina, t.Materia, t.dataCriacao);
             }
         }
 

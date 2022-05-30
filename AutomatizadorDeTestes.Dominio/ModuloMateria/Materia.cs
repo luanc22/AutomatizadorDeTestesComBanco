@@ -46,5 +46,14 @@ namespace AutomatizadorDeTestes.Dominio.ModuloMateria
                 return $"{Nome} - {Serie}ºsérie";
             }
         }
+
+        public override bool Equals(object obj)
+        {
+            return obj is Materia materia &&
+                   Numero == materia.Numero &&
+                   EqualityComparer<Disciplina>.Default.Equals(Disciplina, materia.Disciplina) &&
+                   Nome == materia.Nome &&
+                   Serie == materia.Serie;
+        }
     }
 }
